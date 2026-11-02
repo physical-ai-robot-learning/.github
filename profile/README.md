@@ -1,4 +1,6 @@
-# Physical AI · Robot Learning
+# Physical AI & Robot Learning
+
+*Learning transferable robot skills from human demonstrations, reinforcement learning and physical interaction.*
 
 Robot learning from people and from simulation, executed on real and simulated robots: human demonstrations recorded
 with hand-worn grippers and converted into training data for a low-cost dual-arm robot (reBot B601-DM), and
