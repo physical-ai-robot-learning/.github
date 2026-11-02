@@ -2,8 +2,7 @@
 
 Robot learning from people and from simulation, executed on real and simulated robots: human demonstrations recorded
 with hand-worn grippers and converted into training data for a low-cost dual-arm robot (reBot B601-DM), and
-reinforcement learning for humanoid locomotion. Each project lives in its own repository; the code the two demonstration projects share is in
-[handumi-common](https://github.com/physical-ai-vla/handumi-common).
+reinforcement learning for humanoid locomotion. Each project lives in its own repository.
 
 | Garment manipulation | Cube stacking | G1 humanoid navigation |
 |---|---|---|
@@ -30,9 +29,6 @@ each gripper. A fixed camera watches the table: a head-mounted webcam (cube) or 
 - **Conventions.** Poses in the robot base frame; actions as relative end-effector motion `inv(T_t)·T_{t+k}`; 1 = open
   for the gripper. The cube CART20 action uses a continuous aperture; the garment action uses the binary jaw state with a
   0.1 s ramp (the continuous aperture is stored separately).
-
-Shared code: [handumi-common](https://github.com/physical-ai-vla/handumi-common) — the HandUMI recorder, the teleop stack
-and pose helpers used by both demonstration projects.
 
 ## How the approach changed (cube → garment)
 
