@@ -4,11 +4,11 @@
 
 Robot learning from people and from simulation, executed on real and simulated robots: human demonstrations recorded
 with hand-worn grippers and converted into training data for a low-cost dual-arm robot (reBot B601-DM), and
-reinforcement learning for humanoid locomotion. Each project lives in its own repository.
+reinforcement learning for humanoid locomotion and for arm grasping. Each project lives in its own repository.
 
-| Garment manipulation | Cube stacking | G1 humanoid navigation |
-|---|---|---|
-| ![human demo vs robot replay](https://github.com/physical-ai-robot-learning/egocentric-garment-manipulation/raw/main/media/human_vs_robot_replay_large.gif) | ![cube stacking demos](https://github.com/physical-ai-robot-learning/egocentric-cube-stacking/raw/main/media/demo_three_orders.gif) | ![G1 reaching an instructed object](https://github.com/physical-ai-robot-learning/g1-target-walking/raw/main/videos/seed0_go-to-the-orange-cylinder.gif) |
+| Garment manipulation | Cube stacking | G1 humanoid navigation | reBot cube grasping |
+|---|---|---|---|
+| ![human demo vs robot replay](https://github.com/physical-ai-robot-learning/egocentric-garment-manipulation/raw/main/media/human_vs_robot_replay_large.gif) | ![cube stacking demos](https://github.com/physical-ai-robot-learning/egocentric-cube-stacking/raw/main/media/demo_three_orders.gif) | ![G1 reaching an instructed object](https://github.com/physical-ai-robot-learning/g1-target-walking/raw/main/videos/seed0_go-to-the-orange-cylinder.gif) | ![reBot staged RL rollouts in simulation](https://github.com/physical-ai-robot-learning/rebot-cube-grasping/raw/main/media/project2/hero_s4_rollouts_e3712k_2026-11-02.gif) |
 
 ## Projects
 
@@ -17,6 +17,7 @@ reinforcement learning for humanoid locomotion. Each project lives in its own re
 | **Cube stacking** | Sep – Oct 2026 | bimanual three-cube stacking in 6 instructed orders | 349 recorded demonstrations → pose (wrist SLAM + IMU scale), gripper and gate filtering → robot training data (joint space, then relative Cartesian); X-VLA pretraining on human data and fine-tuning on robot data; one 15-page technical report; a script that re-checks every reported number (736 claims) | offline results; no robot success rate | [egocentric-cube-stacking](https://github.com/physical-ai-robot-learning/egocentric-cube-stacking) |
 | **Garment manipulation** | Oct 2026 – | T-shirt flattening and folding | the complete project: recorder, calibration, pose (fixed-camera point tracking + markers + IMU), servo-encoder jaw labels, label and dataset builders, policy training and the receding-horizon robot deploy, configs, technical report and videos; open-loop replay as an end-to-end test of the data; 300 flattening demonstrations; first policies observed on the robot (trials not counted); first real-robot grasps in a one-sleeve pinching test on 2 November (trials not counted); small reimplemented utilities with tests on synthetic data | in progress; no policy success rate yet | [egocentric-garment-manipulation](https://github.com/physical-ai-robot-learning/egocentric-garment-manipulation) |
 | **G1 humanoid navigation** | Jun 2026 | instructed target reaching with a Unitree G1 in MuJoCo / MJX | a PPO walking policy trained from scratch (154.8 M environment steps, 77 min; 0.52 m/s for a 0.6 m/s command) driven by a hand-written Navigator; three seeded scenes reached within 0.55 m without falling, with keyword target selection and the simulator's object position; checkpoints, videos and a claims check that re-measures every number on CPU | finished simulation prototype; no hardware, no success rate | [g1-target-walking](https://github.com/physical-ai-robot-learning/g1-target-walking) |
+| **reBot cube grasping** | Jul – Aug 2026 | grasping a 4 cm cube with a low-cost 6-DoF arm | staged C51-SAC in Isaac Lab on cube detections (search → approach), re-evaluated with fixed seeds on 2 November: search 98.5–99.4 %, approach with the simulator's true cube position 73–88 %, deployable gate met in 0 of 646 episodes; the RL policies did not transfer to the real arm, while a perception + inverse-kinematics + state-machine controller grasped on hardware (author's notes, not counted) | simulation results and a documented sim-to-real gap; no real-robot success rate | [rebot-cube-grasping](https://github.com/physical-ai-robot-learning/rebot-cube-grasping) |
 
 ## What the demonstration projects share (garment, cube)
 
